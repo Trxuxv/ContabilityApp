@@ -1,3 +1,4 @@
+import { ContabilityComponent } from './pages/contability/contability.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AppComponent } from './app.component';
 import { NgModule } from '@angular/core';
@@ -7,7 +8,11 @@ const routes: Routes = [
   {
     path: '', component: AppComponent, children: [
       {
-        path:'', component: HomeComponent
+        path: '', component: HomeComponent, children: [
+          {
+            path: '', component: ContabilityComponent
+          }
+        ]
       }
     ]
   }
