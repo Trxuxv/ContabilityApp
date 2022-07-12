@@ -6,7 +6,7 @@
   <div class="w-full bg-red-200 mt-10">
     <button type="button" mat-dialog-close
       class="float-left text-xs font-bold rounded border-2 border-gray-100 p-2 hover:bg-gray-300 ">CANCEL</button>
-    <button type="button"
+    <button type="button" (click)="onDelete()" mat-dialog-close
       class="float-right text-xs font-bold rounded border-2 border-black p-2 hover:bg-gray-900 hover:text-white">CONFIRM</button>
   </div>
 </div>

@@ -1,3 +1,4 @@
+import { ContabilityService } from './pages/contability/contability.service';
 import { ContabilityComponent } from './pages/contability/contability.component';
 import { DialogAnimationsExampleDialog } from './utilities/dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,7 +30,7 @@ import { NgModule } from '@angular/core';
     MatGridListModule,
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [ContabilityService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

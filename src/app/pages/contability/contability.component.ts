@@ -1,3 +1,4 @@
+import { ContabilityService } from './contability.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Function } from './model/user/user.model';
 import { Component, OnInit } from '@angular/core';
@@ -6,10 +7,12 @@ import { DialogAnimationsExampleDialog } from 'src/app/utilities/dialog.componen
 @Component({
   selector: 'app-contability',
   templateUrl: './contability.component.html',
-  styleUrls: ['./contability.component.css']
+  styleUrls: ['./contability.component.css'],
+  providers: [ContabilityService]
 })
 export class ContabilityComponent implements OnInit {
 
+  deleted = false;
   isLoggedIn: boolean = false;
   functions: Function[] = [];
   function: string = '';
@@ -22,14 +25,13 @@ export class ContabilityComponent implements OnInit {
     this.openTab = $tabNumber;
   }
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private service: ContabilityService) { }
 
   ngOnInit() {
     if (localStorage.getItem("session")) {
       this.isLoggedIn = true;
     }
   }
-
 
   add(name: string, value?: number) {
     var model: Function = {
@@ -44,7 +46,12 @@ export class ContabilityComponent implements OnInit {
     }
   }
 
-  delete() {
+  delete(index: number) {
+    this.service.onDeleted.subscribe(x => {
+      if (x == true) [
+
+      ]
+    })
 
   }
 
@@ -60,5 +67,8 @@ export class ContabilityComponent implements OnInit {
       enterAnimationDuration,
       exitAnimationDuration,
     });
+
+
+
   }
 }
